@@ -1,0 +1,21 @@
+currtime = time.time()
+
+    if (message.channel.id == mudae_channel and message.author.bot):
+        embeds = message.embeds
+        if(len(embeds) > 0):
+            if (embeds[0].footer):
+                await message.add_reaction('🇭')
+                print(time.time() - currtime)
+                print(embeds[0].to_dict())
+
+    mudae_wrap = Mudae(bot, mudae_channel)
+        waifu = mudae_wrap.waifu_from(message) 
+        if (waifu):
+            if (waifu.kakera > 250 and waifu.image_count == 'None'):
+                await message.add_reaction('😳')
+            if (waifu.image_count != None):
+                await message.add_reaction('🇭')
+                print(time.time() - currtime)
+            print(waifu.name, waifu.kakera)
+
+    
